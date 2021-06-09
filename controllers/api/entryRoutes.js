@@ -1,19 +1,8 @@
 const router = require('express').Router();
-const { Entry, User } = require('../../models');
+const { Entry } = require('../../models');
+const withAuth = require('../../utils/auth.js');
 
-// tesing for insomnia
-router.get('/', async (req, res) => {
-  try {
-    const entryData = await Entry.findAll({
-      include: [{ model: User }],
-    });
-    res.status(200).json(entryData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newEntry = await Entry.create({
       ...req.body,
@@ -26,7 +15,9 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+// put route
+
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const entryData = await Entry.destroy({
       where: {

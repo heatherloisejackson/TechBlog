@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const projectData = await Entry.findAll({
+    const entryData = await Entry.findAll({
       include: [
         {
           model: User,
@@ -35,8 +35,16 @@ router.get('/entry/:id', async (req, res) => {
           model: User,
           attributes: ['name'],
         },
+        {
+          model: Comment
+        }
       ],
     });
+
+    if (!entryData) {
+      res.status(404).json({ message: 'No entry found with that id!' });
+      return;
+    }
 
     const entry = entryData.get({ plain: true });
 
@@ -44,11 +52,13 @@ router.get('/entry/:id', async (req, res) => {
       ...entry,
       logged_in: req.session.logged_in
     });
+
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// dashboard homepage
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
@@ -78,5 +88,11 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+// sign up - not withAuth
+
+// need post per user
+
+// 
 
 module.exports = router;
