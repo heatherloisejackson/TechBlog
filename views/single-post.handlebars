@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="entry-preview">
+        <h2 class="entry-title">
+          {{entry.title}}
+        </h2>
+        <p class="entry-content">
+          {{entry.content}}
+        </p>
+        <p class="entry-meta">posted by {{entry.user.username}}
+          on {{format_date entry.date_created}}
+        </p>
+      </div>
+      <h3>Comments:</h3>
+      {{#each entry.comments}}
+      <hr>
+      <p class="comment-meta">{{user.username}}
+        on {{format_date date_created}}
+      </p>
+      <p>{{comment_content}}</p>
+      {{/each}}
+      <hr>
+      {{#if logged_in}}
+      <h3>Leave a comment:</h3>
+      <form class="form comment-form" data-id={{entry.id}}>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label for="comment">Comment:</label>
+            <textarea type="text" class="form-control" rows="5" id="comment" name="comment"></textarea>
+          </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      {{/if}}
+    </div>
+  </div>
+</div>
+
+<script src="/js/comment.js"></script>

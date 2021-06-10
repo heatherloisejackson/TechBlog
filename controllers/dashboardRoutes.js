@@ -28,8 +28,7 @@ router.get('/edit/:id', async (req, res) => {
 
     if (EntryData) {
       const Entry = EntryData.get({ plain: true });
-      console.log(Entry);
-      res.render('edit-Entry', {
+      res.render('edit-delete-entry', {
         layout: 'dashboard',
         Entry,
         logged_in: true,
@@ -43,7 +42,7 @@ router.get('/edit/:id', async (req, res) => {
 });
 
 router.get('/new', async (req, res) => {
-  res.render('new-Entry', {
+  res.render('new-entry', {
     layout: 'dashboard',
     logged_in: true,
   });

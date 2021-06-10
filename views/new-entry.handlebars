@@ -1,0 +1,31 @@
+<div class="px-4 py-5 my-5 text-center">
+  <i class="fas fa-user-circle d-block mx-auto mb-4" alt="" width="72" height="57"></i>
+  <h1 class="display-5 fw-bold">Your Dashboard</h1>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Create a New Post:</h3>
+      <form class="form new-post-form">
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label for="post-title">Title:</label>
+            <input type="text" class="form-control" placeholder="Title" id="post-title" name="post-title" />
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label for="post-content">Content:</label>
+            <textarea class="form-control" placeholder="Content" rows="10" id="post-content" name="post-content"></textarea>
+          </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="../public/js/new.js"></script>

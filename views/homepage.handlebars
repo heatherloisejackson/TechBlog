@@ -1,10 +1,63 @@
-{{#each users as |user| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{user.name}}</h2>
+<!-- Page Header -->
+<section class="container col-xl-10 col-xxl-8 px-4 py-5 custom-intro">
+  <div class="row align-items-center g-lg-5 py-5">
+    <div class="col-lg-7 text-center text-lg-start">
+      <h1 class="display-4 fw-bold lh-1 mb-3">Welcome to the Tech Blog</h1>
+      <p class="col-lg-10 fs-4">Sign up or log in to get started posting today!</p>
+    </div>
+    <div class="col-md-10 mx-auto col-lg-5">
+      <form class="p-4 p-md-5 border rounded-3 bg-light signup-form">
+        <div class="form-floating mb-3">
+          <input type="name" class="form-control" id="floatingInput" placeholder="Name" id="name-signup" required
+              data-validation-required-message="Please enter your name.">
+          <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" id="username-signup" required
+              data-validation-required-message="Please enter your username.">
+          <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" id="password-signup" required
+              data-validation-required-message="Please enter your password.">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+        <hr class="my-4">
+        <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+      </form>
+    </div>
   </div>
-  <div class="col-md-6">
-    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
+</section>
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10">
+      {{#each entries as |entry| }}
+      <div>
+        <a href="/entry/{{entry.id}}">
+          <h3>
+            {{entry.title}}
+          </h3>
+          <h2>
+            {{entry.content}}
+          </h2>
+        </a>
+        <p>
+          Posted by
+          <a href="/user/{{entry.user.name}}">{{entry.user.name}}</a>
+          on {{format_date entry.date_created}}
+        </p>
+      </div>
+      <hr>
+      {{/each}}
+    </div>
   </div>
 </div>
-{{/each}}
+
+<script src="./js/signup.js"></script>

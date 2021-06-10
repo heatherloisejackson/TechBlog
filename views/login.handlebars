@@ -1,17 +1,32 @@
-<h2>Login</h2>
+<header>
+  <h1>Login</h1>
+</header>
 
-<form class="form login-form">
-  <div class="form-group">
-    <label for="email-login">email:</label>
-    <input class="form-input" type="text" id="email-login" />
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10">
+      <form class="form login-form">
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label for="username-login">Username</label>
+            <input type="text" class="form-control" placeholder="Username" id="username-login" required
+              data-validation-required-message="Please enter your username.">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label for="password-login">Password</label>
+            <input type="password" class="form-control" placeholder="Password" id="password-login" required
+              data-validation-required-message="Please enter your password.">
+          </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
+      </form>
+      <hr>
+      <p>Or signup <a href="/">here</a></p>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="password-login">password:</label>
-    <input class="form-input" type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">login</button>
-  </div>
-</form>
+</div>
 
-<script src="/js/login.js"></script>
+<script src="./js/login.js"></script>

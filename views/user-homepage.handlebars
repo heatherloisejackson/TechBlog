@@ -1,0 +1,35 @@
+<div class="px-4 py-5 my-5 text-center">
+  <i class="fas fa-user-circle d-block mx-auto mb-4" alt="" width="72" height="57"></i>
+  <h1 class="display-5 fw-bold">Your Dashboard</h1>
+  <div class="col-lg-6 mx-auto">
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a type="button" class="btn btn-primary btn-lg px-4 gap-3" id="new-entry-button" href="/dashboard/new"><i
+          class="fa fa-plus"></i> New post</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="row"></div>
+      {{#each entries as |entry| }}
+      <div class="entry-preview">
+        <a href="/dashboard/edit/{{entry.id}}">
+          <h2 class="entry-title">
+            {{entry.title}}
+          </h2>
+          <h3 class="entry-subtitle">
+            {{entry.content}}
+          </h3>
+        </a>
+        <p class="entry-meta">posted
+          on {{format_date entry.date_created}}
+        </p>
+      </div>
+      <hr>
+      {{/each}}
+    </div>
+  </div>
+
+</div>

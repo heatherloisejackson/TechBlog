@@ -15,7 +15,27 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-// put route
+router.put('/:id', withAuth, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const entryData = await Entry.update(
+      {
+        ...req.body,
+        user_id: req.session.user_id,
+      },
+      {
+        where: {
+          id: id,
+        },
+      }
+    );
+
+    res.status(200).json(entryData);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
