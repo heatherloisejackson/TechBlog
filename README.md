@@ -12,8 +12,8 @@ To use this application, simply head to its website:
 ## Usage
 Here is a screenshot of the application:
 
-![Screenshot Command Line](https://github.com/heatherloisejackson/E-commerceBackEnd/blob/main/assets/CommandLineScreenshot.png)
-![Screenshot Insomnia](https://github.com/heatherloisejackson/E-commerceBackEnd/blob/main/assets/InsomniaScreenshot.png)
+![Screenshot of App (2)](https://github.com/heatherloisejackson/TechBlog/blob/main/images/Screen%20Shot%202021-06-10%20at%208.50.20%20PM.png)
+![Screenshot of App](https://github.com/heatherloisejackson/TechBlog/blob/main/images/Screen%20Shot%202021-06-10%20at%208.49.50%20PM.png)
 
 ## Credits
 Thank you to Penn LPS Coding Bootcamp, my instructors, my peers, [JavaScript](https://www.javascript.com/), [NPM](https://www.npmjs.com/) and its packages, [Express.js](https://expressjs.com/), [Sequelize](https://sequelize.org/), [MySQL](https://www.mysql.com/) & MySQL Workbench, [Handlebars](https://handlebarsjs.com/) and [Insomnia](https://insomnia.rest/).
