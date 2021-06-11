@@ -20,6 +20,7 @@ const loginFormHandler = async (event) => {
       alert('Failed to log in');
     }
   }
+  console.log(err);
 };
 
 document
